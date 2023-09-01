@@ -2,9 +2,16 @@ from tkinter import *
 
 counter = 0
 def action_butt():
-    global counter
-    counter += 1
-    count.config(text="Number of uses : {}".format(counter))
+      global counter
+      counter += 1
+      count.config(text="Number of uses : {}".format(counter))
+      result.config(text="result is : {}/{}".format(height.get(), weight.get()))
+      
+      if is_free.get() == 1 :
+            free_status.config(text="Use Free, enjoy!")
+      else :
+            free_status.config(text=".")
+
 
 
 # Create Tk instance
@@ -26,35 +33,50 @@ window.resizable(width=False, height=False)
 window.title('Calculate BMI')
 
 
-# Title of the program
-Label(window, text="Calculate body BMI",
-      font=("arial", 14),
-      fg="blue", bg="white").pack()
 
-
-# counter
+# Counter
 count = Label(window, font=("arial", 14), fg="white", bg="blue")
 count.config(text="Number of uses : 0")
 count.pack()
 
 
-# Definition of Gender
-gender = Label(window, text="Male / Female")
-gender.config(fg="red")
-gender.pack()
+
+
+# Entry height / Weight
+
+Label(window, text="Enter height").pack()
+height = Entry(window)
+height.pack()
+
+Label(window, text="Enter weight").pack()
+weight = Entry(window)
+weight.pack()
+
+
+
+# result
+
+result = Label(window, text="....")
+result.config(fg="red")
+result.pack()
 
 
 # Calculate button
+
 cal_butt = Button(window, text="Enter")
 cal_butt.config(bg="yellow", fg="black")
 cal_butt.config(command=action_butt)
 cal_butt.pack()
 
 
-# Developer name
-Label(window, text="Developed by Sadegh", 
-      font=("Tahoma", 12), 
-      foreground="white", background="blue" ).pack()
+
+# Check Free Use
+is_free = IntVar()
+Checkbutton(window, text="Free", variable=is_free).pack()
+
+free_status = Label(window, text=".")
+free_status.config(fg="green")
+free_status.pack()
 
 
 # Create run loop
