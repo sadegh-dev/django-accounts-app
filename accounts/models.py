@@ -7,7 +7,9 @@ class User(AbstractBaseUser):
     pass
 
 
-class Profile():
-    pass
+class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
 
 
