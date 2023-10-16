@@ -1,8 +1,7 @@
 from django.contrib.auth.models import BaseUserManager
 
 
-
-class MyUserManager(BaseUserManager):
+class CustomUserManager(BaseUserManager):
     def create_user():
         pass
 
