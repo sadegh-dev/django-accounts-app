@@ -4,7 +4,8 @@ from django.contrib.auth.models import AbstractBaseUser
 
 
 class User(AbstractBaseUser):
-    pass
+    email = models.EmailField(max_length=254, unique=True)
+
 
 
 class Profile(models.Model):
