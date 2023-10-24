@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
-
+from .managers import CustomUserManager
 
 
 class User(AbstractBaseUser):
@@ -8,6 +8,10 @@ class User(AbstractBaseUser):
 
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+
+    USERNAME_FIELD = 'email'
+    objects = CustomUserManager()
+
 
 
 
