@@ -1,9 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
 from .managers import CustomUserManager
+from django.contrib.auth.models import (
+    AbstractBaseUser, PermissionsMixin  )
 
 
-class User(AbstractBaseUser):
+
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=254, unique=True)
 
     is_admin = models.BooleanField(default=False)
