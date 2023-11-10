@@ -18,6 +18,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     objects = CustomUserManager()
 
+    @property
+    def is_staff(self):
+        self.is_admin
+
     def __str__(self):
         return self.email
 
