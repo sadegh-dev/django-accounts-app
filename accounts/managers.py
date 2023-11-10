@@ -4,7 +4,10 @@ from django.utils.translation import gettext_lazy as _
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
+        '''Custom User Model Manager
 
+            Here email is set as primary_key instead of username.
+        '''
         if not email:
             raise ValueError(_("Email is required"))
         
