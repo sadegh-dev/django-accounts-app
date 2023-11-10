@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
-        '''Custom User Model Manager
+        ''' Custom User Model Manager
 
             Here email is set as primary_key instead of username.
         '''
@@ -19,7 +19,8 @@ class CustomUserManager(BaseUserManager):
 
 
     def create_superuser(self, email, password, **extra_fields):
-        
+        ''' create superUser by sending data to the create_user method  '''
+
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_supseruser', True)
         extra_fields.setdefault('is_active', True)
