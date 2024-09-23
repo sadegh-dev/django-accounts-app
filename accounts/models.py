@@ -32,6 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return True
 
 
+# Profile : User -> One To Many
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
